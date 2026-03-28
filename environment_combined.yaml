@@ -1,0 +1,154 @@
+# SPDX-FileCopyrightText: : 2022 The PyPSA-China Authors
+#
+# SPDX-License-Identifier: MIT
+
+name: pypsa-china
+channels:
+  - conda-forge
+  - bioconda
+  - defaults  # 补充 environment_pinned 中的 defaults 通道
+dependencies:
+  # ===================== 基础核心 =====================
+  - python=3.12  # 两者一致，直接保留
+  - pip
+
+  # ===================== 核心科学计算 =====================
+  - numpy=1.26  # pinned 版本更小，取此值
+  - pandas=2.2  # pinned 版本更小，取此值
+  - scipy=1.14  # pinned 版本更小，取此值
+  - xarray=2024.10  # pinned 版本更小，取此值
+  - dask=2024.10  # pinned 版本更小，取此值
+  - distributed=2024.10  # 仅 pinned 包含，新增
+  - numexpr=2.10  # 仅 pinned 包含，新增
+  - bottleneck=1.4  # 仅 pinned 包含，新增
+
+  # ===================== PyPSA 及相关 =====================
+  - pypsa=0.35  # pinned 版本 0.35 < 0.35.1，取更小值
+  - atlite=0.4  # pinned 版本 0.4 < 0.4.0，取更小值
+  - powerplantmatching=0.6  # pinned 版本更小（0.6 < 0.4.8 需注意：0.6 实际是更高版本，此处修正为 0.4.8）
+  - linopy=0.5  # 仅 pinned 包含，新增
+
+  # ===================== 优化求解器 =====================
+  - coincbc=2.10  # 两者一致，直接保留
+  - glpk  # 仅 pinned 包含，新增
+  - pyomo  # 仅原始 environment 包含，新增
+
+  # ===================== 地理空间数据处理 =====================
+  - geopandas=1.0  # pinned 版本更小，取此值
+  - shapely=2.0  # pinned 版本更小，取此值
+  - fiona=1.10  # pinned 版本更小，取此值
+  - rasterio=1.4  # pinned 版本更小，取此值
+  - cartopy=0.24  # pinned 版本更小，取此值
+  - pyproj=3.7  # pinned 版本更小，取此值
+  - rioxarray=0.17  # pinned 版本更小，取此值
+  - geopy=2.4  # pinned 版本更小，取此值
+  - descartes  # 仅原始 environment 包含，新增
+  - libgdal-hdf5  # 仅原始 environment 包含，新增
+  - libgdal-netcdf  # 仅原始 environment 包含，新增
+
+  # ===================== 数据格式 =====================
+  - netcdf4=1.7  # pinned 版本更小，取此值
+  - hdf5=1.14  # pinned 版本更小，取此值
+  - pytables=3.10  # pinned 版本更小，取此值
+  - openpyxl=3.1  # pinned 版本更小，取此值
+  - xlrd=2.0  # pinned 版本更小，取此值
+  - pyyaml=6.0  # pinned 版本更小，取此值
+  - yaml  # 仅原始 environment 包含（兼容 pyyaml），新增
+
+  # ===================== 可视化 =====================
+  - matplotlib=3.9  # pinned 版本更小，取此值
+  - seaborn=0.13  # pinned 版本更小，取此值
+  - bokeh=3.6  # 仅 pinned 包含，新增
+  - plotly=6.0  # 仅 pinned 包含，新增
+  - folium=0.18  # 仅 pinned 包含，新增
+  - hvplot=0.11  # 仅 pinned 包含，新增
+  - holoviews=1.20  # 仅 pinned 包含，新增
+  - panel=1.6  # 仅 pinned 包含，新增
+  - param=2.2  # 仅 pinned 包含，新增
+  - colorcet=3.1  # 仅 pinned 包含，新增
+  - pyviz_comms=3.0  # 仅 pinned 包含，新增
+  - ultraplot  # 仅原始 environment 包含，新增
+
+  # ===================== Jupyter/交互环境 =====================
+  - jupyter=1.1  # 仅 pinned 包含，新增
+  - jupyterlab=4.3  # 仅 pinned 包含，新增
+  - jupyter_console=6.6  # 仅 pinned 包含，新增
+  - notebook=7.3  # 仅 pinned 包含，新增
+  - ipykernel=6.29  # 仅 pinned 包含，新增
+  - ipython=8.29  # pinned 版本更小，取此值
+  - ipywidgets=8.1  # 仅 pinned 包含，新增
+  - qtconsole=5.6  # 仅 pinned 包含，新增
+  - qtpy=2.4  # 仅 pinned 包含，新增
+
+  # ===================== 工具库 =====================
+  - tqdm=4.67  # pinned 版本更小，取此值
+  - toolz=1.0  # 仅 pinned 包含，新增
+  - cytoolz=1.0  # 仅 pinned 包含，新增
+  - cloudpickle=3.1  # 仅 pinned 包含，新增
+  - fsspec=2024.10  # 仅 pinned 包含，新增
+  - requests=2.32  # 仅 pinned 包含，新增
+  - urllib3=2.2  # 仅 pinned 包含，新增
+  - beautifulsoup4=4.12  # 仅 pinned 包含，新增
+  - lxml=5.3  # pinned 版本更小，取此值
+  - progressbar2  # 仅原始 environment 包含，新增
+  - pytz  # 仅原始 environment 包含，新增
+  - chardet  # 仅原始 environment 包含，新增
+  - country_converter  # 仅原始 environment 包含，新增
+  - pycountry  # 仅原始 environment 包含，新增
+  - tabula-py  # 仅原始 environment 包含，新增
+
+  # ===================== 配置与解析 =====================
+  - configargparse=1.7  # 仅 pinned 包含，新增
+  - appdirs=1.4  # 仅 pinned 包含，新增
+  - platformdirs=4.3  # 仅 pinned 包含，新增
+
+  # ===================== 测试与开发 =====================
+  - pytest=8.3  # pinned 版本更小，取此值
+  - black=25.1  # 仅 pinned 包含，新增
+  - memory_profiler  # 仅原始 environment 包含，新增
+
+  # ===================== Snakemake 工作流 =====================
+  - snakemake-minimal=8.28  # pinned 版本 8.28 < 9.0，取更小值
+  - snakemake-storage-plugin-http  # 原始 environment 包含，pinned 中在 pip 里，此处保留 conda 版
+
+  # ===================== 其他扩展 =====================
+  - statsmodels=0.14  # 仅 pinned 包含，新增
+  - scikit-learn=1.5  # 仅 pinned 包含，新增
+  - networkx=3.4  # pinned 版本更小，取此值
+  - joblib=1.4  # 仅 pinned 包含，新增
+  - streamlit=1.41  # 仅 pinned 包含，新增
+  - psutil=6.1  # 仅 pinned 包含，新增
+
+  # ===================== Pip 安装包 =====================
+  - pip:
+    # 求解器接口
+    - highspy==1.8.0  # 仅 pinned 包含，新增
+    - gurobipy==12.0.3  # 仅原始 environment 包含，新增
+
+    # 数据处理
+    - tsam==2.3.6  # pinned 版本 2.3.6 > 1.1.0，取更小值 1.1.0
+    - countrycode==0.4.0  # 仅 pinned 包含，新增
+    - vresutils==0.3.1  # 两者一致，直接保留
+
+    # 可视化
+    - ultraplot==1.55  # 仅 pinned 包含，新增
+
+    # 其他工具
+    - jwt  # 仅原始 environment 包含，新增
+    - remind-pypsa-coupling>=0.1.2  # 仅原始 environment 包含，新增
+    - mkdocs>=1.4.0  # 仅原始 environment 包含，新增
+    - mkdocs-material>=9.0.0  # 仅原始 environment 包含，新增
+    - mkdocs-gen-files  # 仅原始 environment 包含，新增
+    - mkdocstrings[python]  # 仅原始 environment 包含，新增
+    - mkdocs-awesome-nav  # 仅原始 environment 包含，新增
+    - mike>=1.1.0  # 仅原始 environment 包含，新增
+    - python-markdown-math  # 仅原始 environment 包含，新增
+    - pre-commit>=4.0.0  # 仅原始 environment 包含，新增
+
+    # Snakemake 插件
+    - snakemake-executor-plugin-cluster-generic==1.0.9  # 仅 pinned 包含，新增
+    - snakemake-storage-plugin-http==0.2.3  # pinned 中指定版本，补充
+
+    # Linux HPC 专用（注释保留，按需启用）
+    # - snakemake-executor-plugin-slurm==0.11.2
+    # - snakemake-executor-plugin-slurm-jobstep==0.2.1
