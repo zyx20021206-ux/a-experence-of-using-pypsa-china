@@ -15,8 +15,8 @@ cd I:\PyPSA-China-PIK-main
 # 激活环境
 conda activate I:\pypsa-china
 
-# 测试文件需要去网站下载4个文件，大概十几个g，放在本工程下的data文件夹下
-# 下载失败的话可以去网站下，国内下载非常慢 网址 https://zenodo.org/records/17719794
+# 测试文件需要去网站下载4个文件，大概十几个g
+# 可以去网站下，国内下载非常慢 网址 https://zenodo.org/records/17719794
 # 共四个文件，需放在./resources/cutouts中
 
 # 此时进行干运行应该就通过了
